@@ -1,0 +1,7 @@
+J:\NAI_ai\NAI_ai\knn\knn\obj\Debug\knn.csproj.AssemblyReference.cache
+J:\NAI_ai\NAI_ai\knn\knn\obj\Debug\knn.csproj.SuggestedBindingRedirects.cache
+J:\NAI_ai\NAI_ai\knn\knn\obj\Debug\knn.csproj.CoreCompileInputs.cache
+J:\NAI_ai\NAI_ai\knn\knn\bin\Debug\knn.exe
+J:\NAI_ai\NAI_ai\knn\knn\bin\Debug\knn.pdb
+J:\NAI_ai\NAI_ai\knn\knn\obj\Debug\knn.exe
+J:\NAI_ai\NAI_ai\knn\knn\obj\Debug\knn.pdb
