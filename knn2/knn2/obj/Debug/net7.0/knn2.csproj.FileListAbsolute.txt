@@ -1,0 +1,15 @@
+J:\NAI_ai\NAI_ai\knn2\knn2\bin\Debug\net7.0\knn2.exe
+J:\NAI_ai\NAI_ai\knn2\knn2\bin\Debug\net7.0\knn2.deps.json
+J:\NAI_ai\NAI_ai\knn2\knn2\bin\Debug\net7.0\knn2.runtimeconfig.json
+J:\NAI_ai\NAI_ai\knn2\knn2\bin\Debug\net7.0\knn2.dll
+J:\NAI_ai\NAI_ai\knn2\knn2\bin\Debug\net7.0\knn2.pdb
+J:\NAI_ai\NAI_ai\knn2\knn2\obj\Debug\net7.0\knn2.csproj.AssemblyReference.cache
+J:\NAI_ai\NAI_ai\knn2\knn2\obj\Debug\net7.0\knn2.GeneratedMSBuildEditorConfig.editorconfig
+J:\NAI_ai\NAI_ai\knn2\knn2\obj\Debug\net7.0\knn2.AssemblyInfoInputs.cache
+J:\NAI_ai\NAI_ai\knn2\knn2\obj\Debug\net7.0\knn2.AssemblyInfo.cs
+J:\NAI_ai\NAI_ai\knn2\knn2\obj\Debug\net7.0\knn2.csproj.CoreCompileInputs.cache
+J:\NAI_ai\NAI_ai\knn2\knn2\obj\Debug\net7.0\knn2.dll
+J:\NAI_ai\NAI_ai\knn2\knn2\obj\Debug\net7.0\refint\knn2.dll
+J:\NAI_ai\NAI_ai\knn2\knn2\obj\Debug\net7.0\knn2.pdb
+J:\NAI_ai\NAI_ai\knn2\knn2\obj\Debug\net7.0\knn2.genruntimeconfig.cache
+J:\NAI_ai\NAI_ai\knn2\knn2\obj\Debug\net7.0\ref\knn2.dll
