@@ -1,4 +1,4 @@
-﻿namespace perceptron
+﻿namespace Perceptron
 {
     internal class Program
     {

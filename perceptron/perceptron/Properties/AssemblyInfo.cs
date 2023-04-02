@@ -4,11 +4,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("perceptron")]
+[assembly: AssemblyTitle("Perceptron")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("perceptron")]
+[assembly: AssemblyProduct("Perceptron")]
 [assembly: AssemblyCopyright("Copyright ©  2023")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -19,7 +19,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("55D7A376-3A68-42F6-8A8C-357B9D5E1CC9")]
+[assembly: Guid("8405743C-9C7C-4ACD-B0D6-E2056BA05CC6")]
 
 // Version information for an assembly consists of the following four values:
 //

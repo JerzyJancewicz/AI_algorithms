@@ -13,19 +13,21 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "J:\\NAI_ai\\NAI_ai\\knn2\\knn2\\knn2.csproj",
+      "projectUniqueName": "C:\\Users\\jance\\NAI_Projekty\\NAI_ai\\knn2\\knn2\\knn2.csproj",
       "projectName": "knn2",
-      "projectPath": "J:\\NAI_ai\\NAI_ai\\knn2\\knn2\\knn2.csproj",
+      "projectPath": "C:\\Users\\jance\\NAI_Projekty\\NAI_ai\\knn2\\knn2\\knn2.csproj",
       "packagesPath": "C:\\Users\\jance\\.nuget\\packages\\",
-      "outputPath": "J:\\NAI_ai\\NAI_ai\\knn2\\knn2\\obj\\",
+      "outputPath": "C:\\Users\\jance\\NAI_Projekty\\NAI_ai\\knn2\\knn2\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\jance\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\jance\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -59,7 +61,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Users\\jance\\.dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }
