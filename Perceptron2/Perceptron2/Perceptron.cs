@@ -6,9 +6,10 @@ namespace Perceptron2
     {
         private readonly List<string> _testData;
         private readonly List<string> _data;
+        private readonly List<List<double>> _doubleData;
         private readonly double _alfa;
-        private List<double> _weights = new List<double>();
-        private double _bias;
+        private readonly List<double> _weights = new List<double>();
+        private readonly double _bias;
         private int _accuracy;
 
         public Perceptron(List<string> testData, List<string> data, double alfa, double bias)
@@ -17,6 +18,7 @@ namespace Perceptron2
             _data = data;
             _alfa = alfa;
             _bias = bias;
+            _doubleData = ConvertToDoubleDataOnly(_data);
             FillWeights();
         }
         
@@ -26,7 +28,9 @@ namespace Perceptron2
             int actualOutput;
             int expectedOutput;
             float sumAccuracy = 0;
-            List<List<double>> tmpDouble = ConvertToDoubleDataOnly(_data);
+            List<double> weights = _weights;
+            double bias = _bias;
+            List<List<double>> tmpDouble = _doubleData;
             
             // "Iris-virginica" - 1
             // "Iris-versicolor" - 0
@@ -43,26 +47,22 @@ namespace Perceptron2
                     {
                         expectedOutput = 0;
                     }
-                   // Console.WriteLine(expectedOutput);
-                    // aktualizowac delte
-                    actualOutput = Net(_bias, i);
+                    // aktualizowac bias
+                    actualOutput = Net(bias, i, weights);
+                    Console.WriteLine(actualOutput);
                     
                     if (actualOutput != expectedOutput)
                     {
-                        _weights = CountWeight(_alfa, expectedOutput, actualOutput, tmpDouble[i]);
-                        _bias = CountBias(_alfa, expectedOutput, actualOutput);
+                        weights = CountWeight(_alfa, expectedOutput, actualOutput, tmpDouble[i], weights);
+                        bias = CountBias(_alfa, expectedOutput, actualOutput, bias);
                     }
                     else
                     {
                         _accuracy++;
                     }
-                    
-                    //Console.WriteLine(_accuracy);
-                    //Console.WriteLine(tmpString.Count);
-                    //Console.WriteLine("accuracy: "+ (float)_accuracy/tmpString.Count * 100);
+                    //Console.WriteLine("chuj");
                 }
                 sumAccuracy += (float)_accuracy / maxEpok;
-                //Console.WriteLine(_accuracy);
                 _accuracy = 0;
             }
             Console.WriteLine("accuracy: "+ sumAccuracy/tmpString.Count);
@@ -70,25 +70,23 @@ namespace Perceptron2
         
         private void FillWeights()
         {
-            for (int i = 0; i < ConvertToDoubleDataOnly(_data)[0].Count; i++)
+            for (int i = 0; i < _doubleData[0].Count; i++)
             {
                 _weights.Add(new Random().NextDouble());
             }
         }
 
-        private int Net(double bias, int lineNumber)
+        private int Net(double bias, int lineNumber, List<double> weights)
         {
             double sum = 0;
-            List<double> weightTmp = _weights;
-            List<double> tmpDoubles = ConvertToDoubleDataOnly(_data)[lineNumber];
+            List<double> weightTmp = weights;
+            List<double> tmpDoubles = _doubleData[lineNumber];
 
             for (int i = 0; i < tmpDoubles.Count; i++)
             {
-                sum += tmpDoubles[i] * weightTmp[i];
+                sum += weightTmp[i] * tmpDoubles[i];
             }
-            Console.WriteLine("prze"+sum);
             sum += (-1) * bias;
-            Console.WriteLine("po"+sum);
             if (sum >= 0)
             {
                 return 1;
@@ -99,22 +97,22 @@ namespace Perceptron2
         // w = w`
         // predict exitvalue
         // entry value to nazwa z pliku reprezentowalna albo 1 albo 0
-        private List<double> CountWeight(double alfa, int expectedOutput, double actualOutput, List<double> doubles)
+        private List<double> CountWeight(double alfa, int expectedOutput, double actualOutput, List<double> doubles, List<double> weights)
         {
-            List<double> tmp = _weights;
+            List<double> tmp = weights;
             List<double> tmpDoubles = doubles;
             for (int i = 0; i < doubles.Count; i++)
             {
-                tmpDoubles[i] = (tmpDoubles[i]*(alfa*(actualOutput - expectedOutput)));
+                tmpDoubles[i] = (tmpDoubles[i]*alfa*(actualOutput - expectedOutput));
                 tmp[i] = (tmp[i] + tmpDoubles[i]);
             }
+            
             return tmp;
         }
 
-        private double CountBias(double alpha, int expectedOutput, double actualOutput)
+        private double CountBias(double alpha, int expectedOutput, double actualOutput, double bias)
         {
-            double newBias = _bias - alpha * (actualOutput - expectedOutput);
-            //Console.WriteLine(newBias);
+            double newBias = bias - alpha * (actualOutput - expectedOutput);
             return newBias;
         }
 
