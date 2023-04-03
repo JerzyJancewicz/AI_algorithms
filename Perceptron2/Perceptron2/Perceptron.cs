@@ -11,7 +11,7 @@ namespace Perceptron2
         private double _bias;
         private int _accuracy;
 
-        public Perceptron(List<string> testData, List<string> data, double alfa, int bias)
+        public Perceptron(List<string> testData, List<string> data, double alfa, double bias)
         {
             _testData = testData;
             _data = data;
@@ -23,14 +23,13 @@ namespace Perceptron2
         // albo jak sie nie nauczy albo przez maxEpok
         public void Learn(int maxEpok)
         {
-            int entryValue;
-            int exitValue;
+            int actualOutput;
+            int expectedOutput;
             float sumAccuracy = 0;
             List<List<double>> tmpDouble = ConvertToDoubleDataOnly(_data);
             
             // "Iris-virginica" - 1
             // "Iris-versicolor" - 0
-            int count = 0;
             List<string> tmpString = ConvertToStringDataOnly(_data);
             for (int j = 0; j < maxEpok; j++)
             {
@@ -38,20 +37,20 @@ namespace Perceptron2
                 {
                     if (tmpString[i] == "Iris-virginica")
                     {
-                        entryValue = 1;
+                        expectedOutput = 1;
                     }
                     else
                     {
-                        entryValue = 0;
+                        expectedOutput = 0;
                     }
+                   // Console.WriteLine(expectedOutput);
                     // aktualizowac delte
-                    exitValue = Net(_bias, i);
+                    actualOutput = Net(_bias, i);
                     
-                    if (entryValue != exitValue)
+                    if (actualOutput != expectedOutput)
                     {
-                        count++;
-                        _weights = CountWeight(_alfa, entryValue, exitValue, tmpDouble[i]);
-                        _bias = CountBias(_alfa, entryValue, exitValue);
+                        _weights = CountWeight(_alfa, expectedOutput, actualOutput, tmpDouble[i]);
+                        _bias = CountBias(_alfa, expectedOutput, actualOutput);
                     }
                     else
                     {
@@ -62,11 +61,11 @@ namespace Perceptron2
                     //Console.WriteLine(tmpString.Count);
                     //Console.WriteLine("accuracy: "+ (float)_accuracy/tmpString.Count * 100);
                 }
-                sumAccuracy += (float)_accuracy/tmpString.Count;
-                Console.WriteLine(sumAccuracy);
+                sumAccuracy += (float)_accuracy / maxEpok;
+                //Console.WriteLine(_accuracy);
                 _accuracy = 0;
             }
-            Console.WriteLine("accuracy: "+ sumAccuracy/maxEpok);
+            Console.WriteLine("accuracy: "+ sumAccuracy/tmpString.Count);
         }
         
         private void FillWeights()
@@ -77,7 +76,7 @@ namespace Perceptron2
             }
         }
 
-        private int Net(double delta, int lineNumber)
+        private int Net(double bias, int lineNumber)
         {
             double sum = 0;
             List<double> weightTmp = _weights;
@@ -87,7 +86,9 @@ namespace Perceptron2
             {
                 sum += tmpDoubles[i] * weightTmp[i];
             }
-            sum += (-1) * delta;
+            Console.WriteLine("prze"+sum);
+            sum += (-1) * bias;
+            Console.WriteLine("po"+sum);
             if (sum >= 0)
             {
                 return 1;
@@ -98,23 +99,23 @@ namespace Perceptron2
         // w = w`
         // predict exitvalue
         // entry value to nazwa z pliku reprezentowalna albo 1 albo 0
-        private List<double> CountWeight(double alfa, int entryValue, double exitValue, List<double> doubles)
+        private List<double> CountWeight(double alfa, int expectedOutput, double actualOutput, List<double> doubles)
         {
             List<double> tmp = _weights;
             List<double> tmpDoubles = doubles;
             for (int i = 0; i < doubles.Count; i++)
             {
-                tmpDoubles[i] = (tmpDoubles[i]*(alfa*(entryValue - exitValue)));
+                tmpDoubles[i] = (tmpDoubles[i]*(alfa*(actualOutput - expectedOutput)));
                 tmp[i] = (tmp[i] + tmpDoubles[i]);
             }
             return tmp;
         }
 
-        private double CountBias(double alfa, int entryValue, double exitValue)
+        private double CountBias(double alpha, int expectedOutput, double actualOutput)
         {
-            double tmp = _bias;
-            tmp = _bias - (alfa * (entryValue - exitValue));
-            return tmp;
+            double newBias = _bias - alpha * (actualOutput - expectedOutput);
+            //Console.WriteLine(newBias);
+            return newBias;
         }
 
         private void IterationError()
