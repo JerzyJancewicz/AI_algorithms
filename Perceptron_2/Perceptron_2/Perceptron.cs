@@ -38,7 +38,6 @@ namespace Perceptron2
             {
                 for (int i = 0; i < tmpString.Count; i++)
                 {
-
                     expectedOutput = tmpString[i] == "Iris-virginica" ? 1 : 0;
                     actualOutput = Net(bias, i, weights);
 

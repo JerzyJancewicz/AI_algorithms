@@ -10,7 +10,7 @@
             List<string> dataLap = File.ReadLines("C:\\Users\\jance\\NAI_Projekty\\NAI_ai\\Perceptron_2\\Perceptron_2\\data\\perceptron.data").ToList();
             // mała alfa
             Perceptron perceptron = new Perceptron(testDataLap, dataLap, 0.01, 0.5);
-            perceptron.Learn(4000);
+            perceptron.Learn(1);
         }
     }
 }
