@@ -27,7 +27,6 @@ namespace Perceptron2
         {
             int actualOutput;
             int expectedOutput;
-            float sumAccuracy = 0;
             List<double> weights = _weights;
             double bias = _bias;
             List<List<double>> tmpDouble = _doubleData;
@@ -39,18 +38,12 @@ namespace Perceptron2
             {
                 for (int i = 0; i < tmpString.Count; i++)
                 {
-                    if (tmpString[i] == "Iris-virginica")
-                    {
-                        expectedOutput = 1;
-                    }
-                    else
-                    {
-                        expectedOutput = 0;
-                    }
-                    // aktualizowac bias
+
+                    expectedOutput = tmpString[i] == "Iris-virginica" ? 1 : 0;
                     actualOutput = Net(bias, i, weights);
-                    Console.WriteLine(actualOutput);
-                    
+                    weights.ForEach(e => Console.WriteLine(e));
+
+                    //Console.WriteLine(expectedOutput + " " + actualOutput);
                     if (actualOutput != expectedOutput)
                     {
                         weights = CountWeight(_alfa, expectedOutput, actualOutput, tmpDouble[i], weights);
@@ -60,12 +53,9 @@ namespace Perceptron2
                     {
                         _accuracy++;
                     }
-                    //Console.WriteLine("chuj");
                 }
-                sumAccuracy += (float)_accuracy / maxEpok;
-                _accuracy = 0;
             }
-            Console.WriteLine("accuracy: "+ sumAccuracy/tmpString.Count);
+            Console.WriteLine("accuracy: "+ _accuracy/maxEpok);
         }
         
         private void FillWeights()
@@ -103,7 +93,7 @@ namespace Perceptron2
             List<double> tmpDoubles = doubles;
             for (int i = 0; i < doubles.Count; i++)
             {
-                tmpDoubles[i] = (tmpDoubles[i]*alfa*(actualOutput - expectedOutput));
+                tmpDoubles[i] = (tmpDoubles[i]*alfa*(expectedOutput - actualOutput));
                 tmp[i] = (tmp[i] + tmpDoubles[i]);
             }
             
@@ -112,7 +102,7 @@ namespace Perceptron2
 
         private double CountBias(double alpha, int expectedOutput, double actualOutput, double bias)
         {
-            double newBias = bias - alpha * (actualOutput - expectedOutput);
+            double newBias = bias - alpha * (expectedOutput - actualOutput);
             return newBias;
         }
 
