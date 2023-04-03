@@ -8,8 +8,8 @@ namespace Perceptron2
         private readonly List<string> _data;
         private readonly List<List<double>> _doubleData;
         private readonly double _alfa;
-        private readonly List<double> _weights = new List<double>();
-        private readonly double _bias;
+        private List<double> _weights = new List<double>();
+        private double _bias;
         private int _accuracy;
 
         public Perceptron(List<string> testData, List<string> data, double alfa, double bias)
@@ -23,7 +23,7 @@ namespace Perceptron2
         }
         
         // albo jak sie nie nauczy albo przez maxEpok
-        public void Learn(int maxEpok)
+        public void Learn(int maxEpoch)
         {
             int actualOutput;
             int expectedOutput;
@@ -34,16 +34,14 @@ namespace Perceptron2
             // "Iris-virginica" - 1
             // "Iris-versicolor" - 0
             List<string> tmpString = ConvertToStringDataOnly(_data);
-            for (int j = 0; j < maxEpok; j++)
+            for (int j = 0; j < maxEpoch; j++)
             {
                 for (int i = 0; i < tmpString.Count; i++)
                 {
 
                     expectedOutput = tmpString[i] == "Iris-virginica" ? 1 : 0;
                     actualOutput = Net(bias, i, weights);
-                    weights.ForEach(e => Console.WriteLine(e));
 
-                    //Console.WriteLine(expectedOutput + " " + actualOutput);
                     if (actualOutput != expectedOutput)
                     {
                         weights = CountWeight(_alfa, expectedOutput, actualOutput, tmpDouble[i], weights);
@@ -55,7 +53,9 @@ namespace Perceptron2
                     }
                 }
             }
-            Console.WriteLine("accuracy: "+ _accuracy/maxEpok);
+            _weights = weights;
+            _bias = bias;
+            Console.WriteLine("accuracy: "+ _accuracy/maxEpoch);
         }
         
         private void FillWeights()
@@ -76,7 +76,7 @@ namespace Perceptron2
             {
                 sum += weightTmp[i] * tmpDoubles[i];
             }
-            sum += (-1) * bias;
+            sum -= bias;
             if (sum >= 0)
             {
                 return 1;
@@ -104,11 +104,6 @@ namespace Perceptron2
         {
             double newBias = bias - alpha * (expectedOutput - actualOutput);
             return newBias;
-        }
-
-        private void IterationError()
-        {
-            
         }
 
         private List<List<double>> ConvertToDoubleDataOnly(List<string> data2)
