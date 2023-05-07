@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "J:\\NAI_ai\\NAI_ai\\knn2\\knn2\\knn2.csproj",
-      "projectName": "knn2",
-      "projectPath": "J:\\NAI_ai\\NAI_ai\\knn2\\knn2\\knn2.csproj",
+      "projectUniqueName": "J:\\NAI_ai\\NAI_ai\\k_means\\k_means\\k_means.csproj",
+      "projectName": "k_means",
+      "projectPath": "J:\\NAI_ai\\NAI_ai\\k_means\\k_means\\k_means.csproj",
       "packagesPath": "C:\\Users\\jance\\.nuget\\packages\\",
-      "outputPath": "J:\\NAI_ai\\NAI_ai\\knn2\\knn2\\obj\\",
+      "outputPath": "J:\\NAI_ai\\NAI_ai\\k_means\\k_means\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\jance\\AppData\\Roaming\\NuGet\\NuGet.Config"
