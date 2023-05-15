@@ -42,13 +42,8 @@ public class Kmeans
             int groupIndex = pair.Key;
             List<List<double>> groupList = pair.Value;
 
-            Console.WriteLine("Grupa " + groupIndex + " sklad: ");
-            foreach (var group in groupList)
-            {
-                Console.WriteLine(string.Join(", ", group));
-            }
-            Console.WriteLine();
-        }
+            Console.WriteLine("Grupa " + groupIndex + " sklad: " + groupList.Count);
+        }        }
     }
 
     // checking dictionaries if the number of Lists in each group is the same as in previous dictionary
@@ -172,7 +167,7 @@ public class Kmeans
         Random random = new Random();
         while (numbers.Count < _k)
         {
-            int randomNumber = random.Next(0, _data.Count - 1);
+            int randomNumber = random.Next(0, _data.Count - 32);
             numbers.Add(randomNumber);
         }
         foreach (int number in numbers)

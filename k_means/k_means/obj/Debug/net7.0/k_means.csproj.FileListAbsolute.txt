@@ -1,0 +1,15 @@
+C:\Users\s25366\k-means\AI_algorithms\k_means\k_means\bin\Debug\net7.0\k_means.exe
+C:\Users\s25366\k-means\AI_algorithms\k_means\k_means\bin\Debug\net7.0\k_means.deps.json
+C:\Users\s25366\k-means\AI_algorithms\k_means\k_means\bin\Debug\net7.0\k_means.runtimeconfig.json
+C:\Users\s25366\k-means\AI_algorithms\k_means\k_means\bin\Debug\net7.0\k_means.dll
+C:\Users\s25366\k-means\AI_algorithms\k_means\k_means\bin\Debug\net7.0\k_means.pdb
+C:\Users\s25366\k-means\AI_algorithms\k_means\k_means\obj\Debug\net7.0\k_means.csproj.AssemblyReference.cache
+C:\Users\s25366\k-means\AI_algorithms\k_means\k_means\obj\Debug\net7.0\k_means.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\s25366\k-means\AI_algorithms\k_means\k_means\obj\Debug\net7.0\k_means.AssemblyInfoInputs.cache
+C:\Users\s25366\k-means\AI_algorithms\k_means\k_means\obj\Debug\net7.0\k_means.AssemblyInfo.cs
+C:\Users\s25366\k-means\AI_algorithms\k_means\k_means\obj\Debug\net7.0\k_means.csproj.CoreCompileInputs.cache
+C:\Users\s25366\k-means\AI_algorithms\k_means\k_means\obj\Debug\net7.0\k_means.dll
+C:\Users\s25366\k-means\AI_algorithms\k_means\k_means\obj\Debug\net7.0\refint\k_means.dll
+C:\Users\s25366\k-means\AI_algorithms\k_means\k_means\obj\Debug\net7.0\k_means.pdb
+C:\Users\s25366\k-means\AI_algorithms\k_means\k_means\obj\Debug\net7.0\k_means.genruntimeconfig.cache
+C:\Users\s25366\k-means\AI_algorithms\k_means\k_means\obj\Debug\net7.0\ref\k_means.dll
